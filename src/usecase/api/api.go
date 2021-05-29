@@ -11,7 +11,7 @@ func (a *API) Register(router *httprouter.Router) {
 	router.GET("/currencies", myRouter.HandleNow("/currencies", a.Currencies))
 
 	router.POST("/currency", myRouter.HandleNow("/currency", a.Currency))
-	router.POST("/count", myRouter.HandleNow("/count", a.Count))
+	router.POST("/calculate", myRouter.HandleNow("/calculate", a.Calculate))
 }
 
 type API struct {

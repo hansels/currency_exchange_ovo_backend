@@ -49,7 +49,7 @@ func (a *API) Currency(w http.ResponseWriter, r *http.Request) *response.JSONRes
 	return response.NewJSONResponse().SetData(data)
 }
 
-func (a *API) Count(w http.ResponseWriter, r *http.Request) *response.JSONResponse {
+func (a *API) Calculate(w http.ResponseWriter, r *http.Request) *response.JSONResponse {
 	err := setCurrencyMap(a.Module.Firestore)
 	if err != nil {
 		return response.NewJSONResponse().SetError(response.ErrBadRequest).SetMessage("Bad Request")
