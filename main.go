@@ -30,7 +30,7 @@ func Main() int {
 	case s := <-term:
 		log.Println("Exiting gracefully...", s)
 	}
-	log.Println("👋")
 
+	log.Println("👋")
 	return 0
 }
