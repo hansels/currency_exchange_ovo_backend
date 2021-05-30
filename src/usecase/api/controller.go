@@ -36,7 +36,7 @@ func (a *API) Currency(w http.ResponseWriter, r *http.Request) *response.JSONRes
 	var currencySingle model.CurrencySingleData
 	err = json.NewDecoder(r.Body).Decode(&currencySingle)
 	if err != nil {
-		log.Fatalln("Currency Single Data Json Decode Error : %+v", err)
+		log.Fatalf("Currency Single Data Json Decode Error : %+v", err)
 		return response.NewJSONResponse().SetError(response.ErrBadRequest).SetMessage("Bad Request")
 	}
 
@@ -58,7 +58,7 @@ func (a *API) Calculate(w http.ResponseWriter, r *http.Request) *response.JSONRe
 	var currencyCount model.CurrencyCountData
 	err = json.NewDecoder(r.Body).Decode(&currencyCount)
 	if err != nil {
-		log.Fatalln("Currency Count Data Json Decode Error : %+v", err)
+		log.Fatalf("Currency Count Data Json Decode Error : %+v", err)
 		return response.NewJSONResponse().SetError(response.ErrBadRequest).SetMessage("Bad Request")
 	}
 
@@ -84,7 +84,7 @@ func setCurrencyMap(firestore *firestore.Client) error {
 
 	listDoc, err := docs.GetAll()
 	if err != nil {
-		log.Fatalln("Read to Firestore error : %+v", err)
+		log.Fatalf("Read to Firestore error : %+v", err)
 		return err
 	}
 
